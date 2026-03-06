@@ -1,0 +1,77 @@
+export const blogPosts = [
+    {
+        id: 1,
+        slug: 'the-art-of-the-cut',
+        title: 'The Art of the Cut — What Makes an Edit Feel Alive',
+        excerpt:
+            'Editing is invisible when it works. The moment a cut feels jarring, you\'ve broken the dream. But when it flows — the audience doesn\'t see the edit. They feel the emotion.',
+        category: 'Editing',
+        date: 'February 12, 2025',
+        readTime: '5 min',
+        coverImage: 'https://images.unsplash.com/photo-1536240478700-b869ad10e128?w=800&q=80',
+        content: [
+            'Editing is the final rewrite of a film. On set, a director may shoot for days. But in the edit suite, every single frame is a decision — and those decisions collectively determine whether a film breathes or suffocates.',
+            'The invisible cut is the holy grail of editing. You are aiming for a point where the audience is so deeply inside the story that they lose awareness of the medium entirely. This happens when pacing matches emotion, when the sound bridge eases the transition, when the eyeline connects seamlessly from one space to another.',
+            'One of the most underrated tools in an editor\'s arsenal is rhythm. Every scene has a heartbeat. A slow, introspective scene might hold on a face for six, seven, eight seconds — letting the silence speak. A chase sequence demands rapid, percussive cuts that match the urgency of the moment. The mistake many new editors make is cutting by logic rather than by feeling.',
+            'I always edit on mute first. Without sound, the visual rhythm becomes raw and unfiltered. Does this cut hold visually? Does the movement carry across the edit point? Only once the picture lock feels right do I lay the audio back in — and then the magic begins. Sound doesn\'t just accompany image, it transforms it.',
+            'Great editing is a conversation between the director\'s intention and the editor\'s instinct. When those two align — when you know exactly why you\'re making a cut, and it\'s confirmed by how it feels — that\'s when an edit truly comes alive.',
+        ],
+    },
+    {
+        id: 2,
+        slug: 'directing-on-a-budget',
+        title: 'Directing on a Budget — How to Get Cinematic Shots',
+        excerpt:
+            'A big budget doesn\'t make a cinematic film. Great cinematography is about controlling light, framing with intention, and understanding that limitations often breed the most creative solutions.',
+        category: 'Direction',
+        date: 'January 28, 2025',
+        readTime: '7 min',
+        coverImage: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80',
+        content: [
+            'The most cinematic film you\'ve ever seen was almost certainly made under impossible constraints at some point in its history. Budget forces creativity. It forces you to commit to a shot, to simplify, to trust your instincts over your equipment list.',
+            'The single biggest misconception I encounter from aspiring filmmakers is that they need better gear. The truth is far simpler and far more demanding: you need better light. Light is everything. A cinema camera in bad light looks worse than a phone in gorgeous, controlled light.',
+            'Shooting during golden hour costs nothing. Positioning your subject near a large window costs nothing. Hanging a white bedsheet to diffuse harsh sunlight costs almost nothing. These are not compromises — they are the choices of a filmmaker who understands that the camera records light, not objects.',
+            'On-screen space is one of the most powerful tools a low-budget director has. Two people talking in a cramped location can feel epic if you choose the right angles and focal lengths. A 50mm lens at close range compresses space in a way that feels intimate and personal. A wide-angle from below can make a modest location feel vast and imposing.',
+            'Blocking is your most powerful tool after light. Where actors move relative to the camera determines what the audience feels. Moving the camera costs time and money. Moving actors within a static frame costs nothing — and often feels more cinematic anyway. Kubrick\'s symmetrical genius, Kurosawa\'s controlled wide masters, Bergman\'s face-filling close-ups — these are formal choices, not budgetary ones.',
+            'The final step is to commit. The director who spends a shoot second-guessing their shots will run out of light, patience, and trust from their crew. Storyboard. Scout your locations. Know your shot list. Leave room for the unexpected. But walk in with a vision, and the budget will find a way to serve it.',
+        ],
+    },
+    {
+        id: 3,
+        slug: 'color-grading-101',
+        title: 'Color Grading 101 — From Flat Log to a Film Look',
+        excerpt:
+            'Log footage looks terrible straight out of the camera — washed out, flat, and lifeless. That\'s by design. Here\'s how I transform it into a rich, cinematic film look in DaVinci Resolve.',
+        category: 'Color',
+        date: 'January 10, 2025',
+        readTime: '6 min',
+        coverImage: 'https://images.unsplash.com/photo-1492551557933-34265f7af79e?w=800&q=80',
+        content: [
+            'If you\'ve ever looked at raw log footage and wondered why it looks so flat and ugly — congratulations, your camera is doing exactly what it\'s supposed to. Log profiles are designed to capture the maximum dynamic range possible by compressing the tonal curve. Your job in post is to expand it back out — with intention.',
+            'The workflow begins with a technical grade. Before you do anything creative, make the image technically correct. Set your exposure so details are visible in the shadows and highlights. Balance your primaries so whites are neutral. This foundation ensures that when you go creative, you\'re building on solid ground rather than paper.',
+            'The second step is applying a LUT or a manual transform to move out of log space into a viewable color space. I prefer working manually in DaVinci — adjusting the curves from log to Rec.709 myself — because it gives me more control over where my blacks land and how saturated my highlights feel out of the starting gate.',
+            'Now comes the creative grade. This is where you define the look of the film. Teal-and-orange is a popular blockbuster look — push your shadows toward teal, your skin tones warm. A desaturated, faded look pulls down the saturation globally and lifts the blacks slightly, giving a timeless, analogue texture. Warm-biased grades work beautifully for romance and period pieces. Cool grades suit thrillers and dramas.',
+            'The most important thing I\'ve learned is consistency. A film should have one cohesive visual identity. Even if scenes are balanced differently to serve the emotional moment, the underlying color language should feel unified. The audience should feel the visual world of the film without consciously analyzing it.',
+            'Finally: subtlety is almost always the answer. Over-graded images draw attention to themselves. The best color grade is the one you don\'t notice — unless you\'re looking for it.',
+        ],
+    },
+    {
+        id: 4,
+        slug: 'dop-essentials-lighting',
+        title: 'DOP Essentials — Lighting Setups Every Filmmaker Should Know',
+        excerpt:
+            'Lighting is the language of cinematography. Whether you\'re shooting with a crew of twenty or just yourself and a reflector, understanding these core setups will transform what you put on screen.',
+        category: 'DOP',
+        date: 'December 22, 2024',
+        readTime: '8 min',
+        coverImage: 'https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=800&q=80',
+        content: [
+            'Walk onto any professional film set and you\'ll observe something that looks like organized chaos. But every light placement, every flag, every bounce card, every negative fill is a deliberate decision made in service of one goal: to tell the story through light.',
+            'The three-point lighting setup is the foundation every filmmaker learns first — and the one they spend the rest of their career learning how to break intelligently. Key light is your primary source, defining the direction of light in the scene. Fill light reduces the shadow cast by the key, controlling the contrast ratio. Backlight (or rim light) separates your subject from the background, giving them a three-dimensional presence.',
+            'The ratio between key and fill determines the mood of your image. A 1:1 ratio — equal key and fill — produces a flat, broadcast-style look. A 4:1 ratio begins to feel dramatic. An 8:1 or higher ratio pushes into noir territory — deep shadows, high contrast, tension. As a DOP, your job is to match the lighting ratio to the emotional intensity of the scene.',
+            'Natural light setups are often the most efficient on low-budget shoots. A large window is essentially a giant softbox. Diffusion material (or even sheer white curtains) softens a harsh sunbeam into something gorgeous. A reflector bounced back toward the shadow side of your subject\'s face can do the job of an entire fill light rig.',
+            'Motivated lighting is the principle that every light source in your frame should be plausibly motivated by a source within the scene — a window, a lamp, a fire, a neon sign. When lighting feels motivated, the viewer accepts it unconsciously. When it feels arbitrary, it breaks immersion. Even if your actual source is a Fresnel twenty degrees off-axis, if it reads as the window across the room, you\'re doing your job.',
+            'The most powerful lighting advice I ever received was this: don\'t light the space, light the idea. Ask yourself what this scene is emotionally about. Then ask yourself what quality of light would make that feeling physical. Cool, raking sidelight creates isolation. Warm, enveloping backlight suggests safety. Hard shadows suggest conflict. Soft, diffuse light suggests intimacy. Light is not neutral. It never is.',
+        ],
+    },
+];

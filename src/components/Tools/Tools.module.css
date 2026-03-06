@@ -1,0 +1,95 @@
+.tools {
+    padding: var(--section-padding);
+    background: var(--charcoal);
+    position: relative;
+}
+
+.tools::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-border), transparent);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--container-padding);
+}
+
+.header {
+    margin-bottom: 56px;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sectionLabel {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    color: var(--cream);
+}
+
+.toolList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
+}
+
+.toolList.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toolItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dot {
+    color: var(--gold);
+    font-size: 0.6rem;
+    opacity: 0.7;
+}
+
+.toolName {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.01em;
+    transition: color 0.2s ease;
+}
+
+.toolItem:hover .toolName {
+    color: var(--gold-light);
+}
+
+@media (max-width: 600px) {
+    .toolList {
+        gap: 14px 24px;
+    }
+}

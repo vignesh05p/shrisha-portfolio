@@ -1,0 +1,905 @@
+/* ═══════════════════════════════════════════
+   HERO — Cinematic multi-layer composition
+   ═══════════════════════════════════════════ */
+
+/* ── Root container ── */
+.stage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 640px;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+/* ── Layer 1: Background ── */
+.bgImage {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(18px) brightness(0.35) saturate(0.8);
+    transform: scale(1.08);
+    pointer-events: none;
+    user-select: none;
+}
+
+/* ── Layer 2: Gradient overlay ── */
+.gradientOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 75% 80% at 50% 50%,
+            rgba(10, 10, 10, 0.2) 0%,
+            rgba(10, 10, 10, 0.75) 70%,
+            rgba(10, 10, 10, 0.97) 100%),
+        linear-gradient(to bottom,
+            transparent 0%,
+            transparent 45%,
+            rgba(10, 10, 10, 0.15) 55%,
+            rgba(10, 10, 10, 0.60) 68%,
+            rgba(10, 10, 10, 0.90) 80%,
+            rgba(10, 10, 10, 1.00) 100%);
+}
+
+/* ── Portrait back-glow ── */
+.portraitGlow {
+    position: absolute;
+    left: 50%;
+    top: 8vh;
+    transform: translateX(-50%);
+    width: 380px;
+    height: 70%;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(ellipse 55% 70% at 50% 40%,
+            rgba(201, 168, 76, 0.13) 0%,
+            rgba(201, 168, 76, 0.06) 35%,
+            rgba(180, 120, 40, 0.03) 60%,
+            transparent 100%);
+    filter: blur(28px);
+    animation: glowPulse 4.5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        opacity: 1.0;
+        transform: translateX(-50%) scale(1.08);
+    }
+}
+
+/* ── Layer 4: Portrait wrapper + image ── */
+.portrait {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 5vh;
+    transform: translateX(-50%);
+    pointer-events: none;
+    user-select: none;
+}
+
+.portrait img {
+    display: block;
+    width: 480px;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+    filter:
+        drop-shadow(0 0 80px rgba(201, 168, 76, 0.15)) drop-shadow(0 40px 120px rgba(0, 0, 0, 0.95));
+}
+
+/* ── Layer 5: Logos — shared ── */
+.logo {
+    position: absolute;
+    display: block;
+    object-fit: contain;
+    border-radius: 14px;
+}
+
+/* LARGE / CLOSE */
+.logoA {
+    left: 6%;
+    top: 22%;
+    width: 110px;
+    height: 110px;
+    z-index: 6;
+    animation: float1 5.2s ease-in-out 0s infinite;
+    filter:
+        drop-shadow(0 12px 40px rgba(153, 102, 255, 0.6)) drop-shadow(0 0 60px rgba(153, 102, 255, 0.3));
+}
+
+.logoB {
+    left: 78%;
+    top: 28%;
+    width: 100px;
+    height: 100px;
+    z-index: 6;
+    animation: float2 6.0s ease-in-out 1.2s infinite;
+    filter:
+        drop-shadow(0 10px 35px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 50px rgba(200, 200, 200, 0.2));
+}
+
+/* MEDIUM / MID */
+.logoC {
+    left: 14%;
+    top: 58%;
+    width: 72px;
+    height: 72px;
+    z-index: 3;
+    opacity: 0.92;
+    animation: float3 7.1s ease-in-out 0.6s infinite;
+    filter:
+        drop-shadow(0 8px 28px rgba(103, 171, 255, 0.5)) drop-shadow(0 0 40px rgba(103, 171, 255, 0.2)) blur(0.4px);
+}
+
+.logoD {
+    left: 80%;
+    top: 60%;
+    width: 68px;
+    height: 68px;
+    z-index: 3;
+    opacity: 0.88;
+    animation: float4 5.8s ease-in-out 2.0s infinite;
+    filter:
+        drop-shadow(0 6px 22px rgba(255, 255, 255, 0.35)) blur(0.3px);
+}
+
+/* SMALL / FAR */
+.logoE {
+    left: 88%;
+    top: 14%;
+    width: 42px;
+    height: 42px;
+    z-index: 2;
+    opacity: 0.55;
+    animation: float5 8.5s ease-in-out 1.8s infinite;
+    filter:
+        drop-shadow(0 4px 12px rgba(153, 102, 255, 0.3)) blur(1.2px);
+}
+
+.logoF {
+    left: 3%;
+    top: 40%;
+    width: 38px;
+    height: 38px;
+    z-index: 2;
+    opacity: 0.45;
+    animation: float6 9.0s ease-in-out 3.0s infinite;
+    filter:
+        drop-shadow(0 3px 10px rgba(103, 171, 255, 0.25)) blur(1.5px);
+}
+
+.logoG {
+    left: 91%;
+    top: 68%;
+    width: 32px;
+    height: 32px;
+    z-index: 2;
+    opacity: 0.35;
+    animation: float1 10.0s ease-in-out 0.4s infinite;
+    filter: blur(2px);
+}
+
+/* Float keyframes */
+@keyframes float1 {
+    0% {
+        transform: translateY(0px) rotate(-4deg) scale(1);
+    }
+
+    30% {
+        transform: translateY(-18px) rotate(2deg) scale(1.02);
+    }
+
+    60% {
+        transform: translateY(-8px) rotate(-6deg) scale(0.98);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(-4deg) scale(1);
+    }
+}
+
+@keyframes float2 {
+    0% {
+        transform: translateY(0px) rotate(5deg) scale(1);
+    }
+
+    40% {
+        transform: translateY(-22px) rotate(-3deg) scale(1.03);
+    }
+
+    70% {
+        transform: translateY(-6px) rotate(7deg) scale(0.97);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(5deg) scale(1);
+    }
+}
+
+@keyframes float3 {
+    0% {
+        transform: translateY(0px) rotate(-2deg) scale(1);
+    }
+
+    25% {
+        transform: translateY(-14px) rotate(4deg) scale(1.01);
+    }
+
+    55% {
+        transform: translateY(-20px) rotate(-3deg) scale(1.02);
+    }
+
+    80% {
+        transform: translateY(-6px) rotate(2deg) scale(0.99);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(-2deg) scale(1);
+    }
+}
+
+@keyframes float4 {
+    0% {
+        transform: translateY(0px) rotate(6deg) scale(1);
+    }
+
+    35% {
+        transform: translateY(-10px) rotate(-4deg) scale(1.02);
+    }
+
+    65% {
+        transform: translateY(-18px) rotate(8deg) scale(0.98);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(6deg) scale(1);
+    }
+}
+
+@keyframes float5 {
+    0% {
+        transform: translateY(0px) rotate(-7deg) scale(1);
+    }
+
+    45% {
+        transform: translateY(-24px) rotate(3deg) scale(1.04);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(-7deg) scale(1);
+    }
+}
+
+@keyframes float6 {
+    0% {
+        transform: translateY(0px) rotate(3deg) scale(1);
+    }
+
+    20% {
+        transform: translateY(-8px) rotate(-5deg) scale(0.98);
+    }
+
+    50% {
+        transform: translateY(-16px) rotate(4deg) scale(1.03);
+    }
+
+    75% {
+        transform: translateY(-4px) rotate(-2deg) scale(1.01);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(3deg) scale(1);
+    }
+}
+
+/* ── Layer 6: Film grain ── */
+.grain {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    pointer-events: none;
+    opacity: 0.028;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    background-repeat: repeat;
+}
+
+/* ── Layer 7: Text block — bottom-anchored (desktop) ── */
+.textBlock {
+    position: absolute;
+    z-index: 9;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 700px;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Eyebrow */
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: #c9a84c;
+    white-space: nowrap;
+    margin-bottom: 0.5rem;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: #c9a84c;
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+/* Name */
+.name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0.85;
+    letter-spacing: 0.06em;
+    margin-bottom: 1rem;
+    text-shadow:
+        0 0 80px rgba(10, 10, 10, 0.95),
+        0 4px 40px rgba(0, 0, 0, 1),
+        0 0 120px rgba(10, 10, 10, 0.8);
+}
+
+.line1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    color: #f4f0e8;
+}
+
+.line2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    color: #c9a84c;
+}
+
+/* Tagline */
+.tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    color: #8a8579;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Pills */
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.4rem;
+}
+
+.pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e8c97a;
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    border-radius: 100px;
+    padding: 0.38rem 1rem;
+    background: rgba(10, 10, 10, 0.45);
+    backdrop-filter: blur(8px);
+    white-space: nowrap;
+}
+
+/* CTA */
+.cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #f4f0e8;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(244, 240, 232, 0.3);
+    padding-bottom: 0.3rem;
+    cursor: pointer;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.cta:hover {
+    color: #c9a84c;
+    border-color: #c9a84c;
+}
+
+/* ── Layer 8: Scroll hint ── */
+.scrollHint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: scrollBounce 2.4s ease-in-out infinite;
+}
+
+.scrollLabel {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: rgba(138, 133, 121, 0.5);
+}
+
+.scrollLine {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(to bottom, #c9a84c, transparent);
+}
+
+@keyframes scrollBounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(8px);
+    }
+}
+
+/* ═══════════════════════════════════════
+   TABLET  (601px – 1024px)
+   Switch to flex column — portrait in flow
+   ═══════════════════════════════════════ */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .stage {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 80px;
+    }
+
+    .bgImage {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: blur(18px) brightness(0.3) saturate(0.8);
+        transform: scale(1.08);
+        z-index: 0;
+    }
+
+    .gradientOverlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+            linear-gradient(to bottom,
+                transparent 0%,
+                transparent 48%,
+                rgba(10, 10, 10, 0.55) 65%,
+                rgba(10, 10, 10, 0.90) 80%,
+                rgba(10, 10, 10, 1.00) 100%);
+    }
+
+    .portraitGlow {
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        height: 50%;
+        z-index: 2;
+        filter: blur(22px);
+    }
+
+    /* Portrait — back in normal document flow */
+    .portrait {
+        position: relative;
+        z-index: 3;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .portrait img {
+        width: 360px;
+        height: auto;
+        object-position: top;
+        mask-image: linear-gradient(to bottom,
+                black 0%,
+                black 58%,
+                rgba(0, 0, 0, 0.4) 78%,
+                transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom,
+                black 0%,
+                black 58%,
+                rgba(0, 0, 0, 0.4) 78%,
+                transparent 100%);
+    }
+
+    /* Text block — back in normal flow */
+    .textBlock {
+        position: relative;
+        z-index: 5;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 2rem 2rem;
+        margin-top: -70px;
+    }
+
+    .line1,
+    .line2 {
+        font-size: clamp(4rem, 11vw, 6rem);
+    }
+
+    .name {
+        line-height: 0.88;
+    }
+
+    /* 4 logos — absolute, corner-positioned */
+    .logoA {
+        left: 5%;
+        top: 88px;
+        width: 64px;
+        height: 64px;
+    }
+
+    .logoB {
+        left: 76%;
+        top: 84px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .logoC {
+        display: block;
+        left: 3%;
+        top: 46%;
+        width: 46px;
+        height: 46px;
+        opacity: 0.85;
+    }
+
+    .logoD {
+        display: block;
+        left: 80%;
+        top: 44%;
+        width: 44px;
+        height: 44px;
+        opacity: 0.82;
+    }
+
+    .logoE {
+        display: none;
+    }
+
+    .logoF {
+        display: none;
+    }
+
+    .logoG {
+        display: none;
+    }
+
+    /* Scroll hint — absolute bottom */
+    .scrollHint {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 50%;
+    }
+}
+
+/* ═══════════════════════════════════════
+   MOBILE  (≤ 600px)
+   Full flex column — portrait & text in flow
+   ═══════════════════════════════════════ */
+@media (max-width: 600px) {
+
+    .stage {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 72px;
+    }
+
+    .bgImage {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: blur(18px) brightness(0.3) saturate(0.8);
+        transform: scale(1.08);
+        z-index: 0;
+    }
+
+    .gradientOverlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+            radial-gradient(ellipse 100% 60% at 50% 0%,
+                rgba(10, 10, 10, 0.0) 0%,
+                rgba(10, 10, 10, 0.5) 60%,
+                rgba(10, 10, 10, 0.95) 100%),
+            linear-gradient(to bottom,
+                transparent 0%,
+                transparent 50%,
+                rgba(10, 10, 10, 0.55) 68%,
+                rgba(10, 10, 10, 0.92) 82%,
+                rgba(10, 10, 10, 1.00) 100%);
+    }
+
+    .portraitGlow {
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 260px;
+        height: 45%;
+        z-index: 2;
+        background: radial-gradient(ellipse 55% 70% at 50% 40%,
+                rgba(201, 168, 76, 0.12) 0%,
+                rgba(201, 168, 76, 0.05) 40%,
+                transparent 100%);
+        filter: blur(22px);
+        pointer-events: none;
+    }
+
+    /* Portrait — in normal document flow */
+    .portrait {
+        position: relative;
+        z-index: 3;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .portrait img {
+        width: 300px;
+        height: auto;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+        filter:
+            drop-shadow(0 0 40px rgba(201, 168, 76, 0.1)) drop-shadow(0 20px 60px rgba(0, 0, 0, 0.95));
+        mask-image: linear-gradient(to bottom,
+                black 0%,
+                black 55%,
+                rgba(0, 0, 0, 0.5) 75%,
+                transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom,
+                black 0%,
+                black 55%,
+                rgba(0, 0, 0, 0.5) 75%,
+                transparent 100%);
+    }
+
+    /* Text block — in normal flow, pulls up slightly */
+    .textBlock {
+        position: relative;
+        z-index: 5;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 1.2rem 2rem;
+        margin-top: -40px;
+    }
+
+    .eyebrow {
+        font-size: 0.52rem;
+        letter-spacing: 0.28em;
+        margin-bottom: 0.5rem;
+        white-space: normal;
+        text-align: center;
+        gap: 0.6rem;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+        width: 16px;
+    }
+
+    .name {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 0.88;
+        letter-spacing: 0.04em;
+        margin-bottom: 0;
+    }
+
+    .line1,
+    .line2 {
+        font-size: clamp(3.6rem, 15vw, 4.8rem);
+    }
+
+    .tagline {
+        font-size: 0.82rem;
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.55;
+        padding: 0 0.5rem;
+    }
+
+    .pills {
+        margin-top: 0;
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .pill {
+        font-size: 0.52rem;
+        padding: 0.28rem 0.7rem;
+        letter-spacing: 0.14em;
+    }
+
+    .cta {
+        margin-top: 0.8rem;
+        font-size: 0.62rem;
+        letter-spacing: 0.22em;
+    }
+
+    /* Scroll hint — back in flow */
+    .scrollHint {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        animation: scrollBounceSimple 2.4s ease-in-out infinite;
+        margin-top: 0.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+    @keyframes scrollBounceSimple {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(6px);
+        }
+    }
+
+    /* Grain stays absolute */
+    .grain {
+        position: absolute;
+        inset: 0;
+        z-index: 8;
+        pointer-events: none;
+    }
+
+    /* 4 corner logos — absolute, orbit the portrait */
+    .logo {
+        position: absolute;
+        z-index: 4;
+    }
+
+    /* Logo A — Premiere Pro — TOP LEFT, large, close, vivid */
+    .logoA {
+        display: block;
+        left: 5%;
+        top: 100px;
+        width: 60px;
+        height: 60px;
+        opacity: 1;
+        animation: float1 5.2s ease-in-out 0s infinite;
+        filter:
+            drop-shadow(0 8px 24px rgba(153, 102, 255, 0.55)) drop-shadow(0 0 40px rgba(153, 102, 255, 0.25));
+    }
+
+    /* Logo B — CapCut1 — TOP RIGHT, large, close, vivid */
+    .logoB {
+        display: block;
+        left: 74%;
+        top: 96px;
+        width: 56px;
+        height: 56px;
+        opacity: 1;
+        animation: float2 6.0s ease-in-out 1.2s infinite;
+        filter:
+            drop-shadow(0 8px 22px rgba(255, 255, 255, 0.35)) drop-shadow(0 0 35px rgba(200, 200, 200, 0.18));
+    }
+
+    /* Logo C — Lightroom — MID LEFT, medium, slightly faded */
+    .logoC {
+        display: block;
+        left: 4%;
+        top: 42%;
+        width: 44px;
+        height: 44px;
+        opacity: 0.85;
+        animation: float3 7.1s ease-in-out 0.6s infinite;
+        filter:
+            drop-shadow(0 6px 18px rgba(103, 171, 255, 0.45)) blur(0.5px);
+    }
+
+    /* Logo D — CapCut — MID RIGHT, medium, slightly faded */
+    .logoD {
+        display: block;
+        left: 76%;
+        top: 40%;
+        width: 42px;
+        height: 42px;
+        opacity: 0.80;
+        animation: float4 5.8s ease-in-out 2.0s infinite;
+        filter:
+            drop-shadow(0 5px 16px rgba(255, 255, 255, 0.3)) blur(0.4px);
+    }
+
+    .logoE {
+        display: none;
+    }
+
+    .logoF {
+        display: none;
+    }
+
+    .logoG {
+        display: none;
+    }
+}

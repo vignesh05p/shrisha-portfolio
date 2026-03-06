@@ -1,0 +1,307 @@
+/* ═══════════════════════════════════════════
+   SERVICES SECTION
+   ═══════════════════════════════════════════ */
+
+.services {
+    padding: var(--section-padding, 7rem 0);
+    background: #0a0a0a;
+}
+
+/* ── Section header ── */
+.header {
+    max-width: var(--container-width, 1200px);
+    margin: 0 auto 4rem;
+    padding: 0 var(--container-padding, 2rem);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: #c9a84c;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    letter-spacing: 0.04em;
+    color: #f4f0e8;
+    line-height: 1.0;
+}
+
+.subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(244, 240, 232, 0.5);
+    max-width: 480px;
+    margin-top: 1rem;
+}
+
+/* ── Grid ── */
+.grid {
+    max-width: var(--container-width, 1200px);
+    margin: 0 auto;
+    padding: 0 var(--container-padding, 2rem);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s;
+}
+
+.grid.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Base service card ── */
+.serviceCard {
+    position: relative;
+    padding: 2rem 1.8rem 1.8rem;
+    border: 1px solid rgba(244, 240, 232, 0.06);
+    border-radius: 4px;
+    background: rgba(244, 240, 232, 0.02);
+    transition:
+        border-color 0.35s ease,
+        background 0.35s ease,
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+    overflow: hidden;
+}
+
+.serviceCard:hover {
+    border-color: rgba(201, 168, 76, 0.25);
+    background: rgba(201, 168, 76, 0.03);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ── FEATURED CARD — Video Editing (card 01) ── */
+.featuredCard {
+    border: 1px solid rgba(201, 168, 76, 0.35) !important;
+    background: linear-gradient(135deg,
+            rgba(201, 168, 76, 0.07) 0%,
+            rgba(10, 10, 10, 0.0) 60%) !important;
+}
+
+.featuredCard:hover {
+    border-color: rgba(201, 168, 76, 0.55) !important;
+    background: linear-gradient(135deg,
+            rgba(201, 168, 76, 0.10) 0%,
+            transparent 60%) !important;
+}
+
+/* ── AI CARD — AI-Assisted Production (card 04) ── */
+.aiCard {
+    border: 1px solid rgba(103, 171, 255, 0.22) !important;
+    background: linear-gradient(135deg,
+            rgba(103, 171, 255, 0.05) 0%,
+            rgba(10, 10, 10, 0.0) 60%) !important;
+}
+
+.aiCard:hover {
+    border-color: rgba(103, 171, 255, 0.42) !important;
+    box-shadow: 0 0 32px rgba(103, 171, 255, 0.07) !important;
+}
+
+/* ── BADGE ── */
+.cardBadge {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.53rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    white-space: nowrap;
+    color: #0a0a0a;
+}
+
+.featuredBadgeStyle {
+    background: #c9a84c;
+}
+
+.aiBadgeStyle {
+    background: linear-gradient(90deg, #67abff, #9b59ff);
+    color: #ffffff;
+}
+
+/* ── Card number (large faded bg number) ── */
+.serviceNum {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: rgba(244, 240, 232, 0.06);
+    line-height: 1;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.04em;
+}
+
+/* ── Icon ── */
+.serviceIcon {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    line-height: 1;
+}
+
+/* ── Service name ── */
+.serviceName {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #f4f0e8;
+    margin-bottom: 0.9rem;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+}
+
+/* ── Description ── */
+.serviceDesc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: rgba(244, 240, 232, 0.45);
+    margin-bottom: 1.2rem;
+}
+
+/* ── Tools line ── */
+.serviceTools {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(201, 168, 76, 0.5);
+    line-height: 1.6;
+    border-top: 1px solid rgba(244, 240, 232, 0.06);
+    padding-top: 0.9rem;
+}
+
+/* ── Mac Mini badge ── */
+.macBadge {
+    margin-top: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.63rem;
+    letter-spacing: 0.12em;
+    color: rgba(201, 168, 76, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* ═══════════════════════════════════════
+   FEATURED CARD — full-width 2-col on desktop
+   ═══════════════════════════════════════ */
+@media (min-width: 1025px) {
+    .featuredCard {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        gap: 0 3rem;
+        align-items: start;
+    }
+
+    .featuredCard .serviceNum {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .featuredCard .serviceIcon {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .featuredCard .serviceName {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .featuredCard .cardBadge {
+        position: relative;
+        top: auto;
+        right: auto;
+        grid-column: 1;
+        grid-row: 4;
+        display: inline-flex;
+        width: fit-content;
+        margin-top: 0.8rem;
+    }
+
+    .featuredCard .serviceDesc {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        align-self: start;
+    }
+
+    .featuredCard .serviceTools {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .featuredCard .macBadge {
+        grid-column: 2;
+        grid-row: 4;
+    }
+}
+
+/* ═══════════════════════════════════════
+   TABLET  (601px – 1024px)
+   ═══════════════════════════════════════ */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featuredCard {
+        grid-column: 1 !important;
+        display: block !important;
+    }
+
+    .featuredCard .cardBadge {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+    }
+}
+
+/* ═══════════════════════════════════════
+   MOBILE  (≤ 600px)
+   ═══════════════════════════════════════ */
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .featuredCard {
+        grid-column: 1 !important;
+        display: block !important;
+    }
+
+    .featuredCard .cardBadge {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+    }
+
+    .serviceName {
+        font-size: 1.05rem;
+    }
+
+    .serviceDesc {
+        font-size: 0.8rem;
+    }
+}
