@@ -2,7 +2,7 @@ import { useInView } from 'react-intersection-observer';
 import styles from './About.module.css';
 
 const stats = [
-    { number: '12+', label: 'Projects' },
+    { number: '60+', label: 'Projects' },
     { number: '3', label: 'Disciplines' },
     { number: '1', label: 'Tulu Feature' },
     { number: '∞', label: 'Stories' },
@@ -20,14 +20,9 @@ const skills = [
         percent: 95,
     },
     {
-        name: 'DOP / Cinematography',
-        subtitle: 'Framing · Lighting · Shot Design',
+        name: 'Story Writer',
+        subtitle: 'Story Structure · Concept Design',
         percent: 85,
-    },
-    {
-        name: 'Photoshop & Design',
-        subtitle: 'Compositing · Retouching',
-        percent: 88,
     },
     {
         name: 'Storytelling',

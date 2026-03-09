@@ -106,7 +106,7 @@ export default function Navbar() {
 
                 {/* Bottom branding */}
                 <div className={styles.menuFooter}>
-                    Film Director · Editor · DOP
+                    Film Director · Editor
                 </div>
             </div>
         </>

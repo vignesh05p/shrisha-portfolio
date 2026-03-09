@@ -6,7 +6,7 @@ import capcut from '../../assets/img/capcut.webp';
 import capcut1 from '../../assets/img/capcut1.webp';
 import styles from './Hero.module.css';
 
-const pills = ['Film Direction', 'Video Editing', 'DOP', 'Photoshop'];
+const pills = ['Film Direction', 'Video Editing'];
 
 export default function Hero() {
     const handleScrollToWork = () => {
