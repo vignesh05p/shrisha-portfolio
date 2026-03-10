@@ -33,6 +33,14 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* 100% on mobile */
+}
+
+@media (min-width: 1024px) {
+  html {
+    /* 16px * 1.30 = 20.8px */
+    font-size: 20.8px;
+  }
 }
 
 body {
