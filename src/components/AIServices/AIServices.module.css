@@ -1,0 +1,207 @@
+/* ===========================================
+   AI FILMMAKING & VIDEO ADS SECTION
+   =========================================== */
+
+.aiServices {
+    padding: var(--section-padding);
+    background: var(--black);
+    position: relative;
+}
+
+.aiServices::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-border), transparent);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: var(--container-padding);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+}
+
+.title em {
+    font-style: normal;
+    color: var(--gold);
+}
+
+.description {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: rgba(244, 240, 232, 0.55);
+    max-width: 640px;
+    margin-bottom: 3.5rem;
+}
+
+.columns {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3.5rem;
+}
+
+/* -- Highlights list -- */
+.highlights {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.highlight {
+    position: relative;
+    padding-left: 1.75rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--cream);
+}
+
+.highlight::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.9rem;
+    height: 1px;
+    background: var(--gold);
+}
+
+/* -- Tools card -- */
+.toolsCard {
+    border: 1px solid var(--gold-border);
+    border-radius: 4px;
+    padding: 2rem;
+    background: linear-gradient(160deg, rgba(201, 168, 76, 0.06), rgba(10, 10, 10, 0) 60%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.toolsLabel {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+}
+
+.tool {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.toolLogoWrap {
+    flex: 0 0 auto;
+    width: 72px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toolLogo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.flowLogo {
+    max-height: 44px;
+}
+
+.toolName {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 0.25rem;
+}
+
+.toolDesc {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--warm-gray);
+}
+
+/* -- CTA -- */
+.cta {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 2px;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+/* -- Responsive -- */
+@media (max-width: 900px) {
+    .columns {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .description {
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .toolsCard {
+        padding: 1.5rem;
+    }
+
+    .cta {
+        width: 100%;
+        text-align: center;
+    }
+}
