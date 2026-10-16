@@ -18,10 +18,10 @@ export default function Contact() {
                 </p>
 
                 <a
-                    href="mailto:shrisha@example.com"
+                    href="mailto:shrish745@gmail.com"
                     className={styles.email}
                 >
-                    shrisha@example.com
+                    shrish745@gmail.com
                 </a>
 
                 <div className={styles.socials}>
