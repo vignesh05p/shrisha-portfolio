@@ -62,15 +62,10 @@ export default function AIServices() {
                                     <img
                                         src={tool.logo}
                                         alt={`${tool.name} logo`}
-                                        className={`${styles.toolLogo} ${
-                                            tool.name === 'Google Flow' ? styles.flowLogo : ''
-                                        }`}
+                                        className={styles.toolLogo}
                                     />
                                 </div>
-                                <div>
-                                    <p className={styles.toolName}>{tool.name}</p>
-                                    <p className={styles.toolDesc}>{tool.desc}</p>
-                                </div>
+                                <p className={styles.toolDesc}>{tool.desc}</p>
                             </div>
                         ))}
                     </div>
